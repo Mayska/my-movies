@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import Script from 'next/script'
 import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -9,13 +10,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
         crossOrigin="anonymous"
-      />
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossOrigin="anonymous"></script>
-      <title>My Movies</title>
+      ></link>
     </Head>
+    <Script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossOrigin="anonymous" />
+    <title>My Movies</title>
     <Component {...pageProps} />
   </>)
 }

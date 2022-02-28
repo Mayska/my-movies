@@ -7,43 +7,41 @@ function Home(props: any) {
     nbPage.push(i)
   }
   return (<>
-    <main>
-      {props.data.results.map(({ title, poster_path, overview }: any) => {
-        return (<>
-          <div className="card mb-2">
-            <div className="row g-0">
-              <div className="col-md-2">
-                <Image className="img-fluid rounded-start"
-                  src={`https://image.tmdb.org/t/p/original${poster_path}`}
-                  height={250}
-                  width={150}
-                  alt={title}
-                />
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">{title}</h5>
-                  <p className="card-text fw-light">{overview}</p>
-                </div>
+    {props.data.results.map(({ title, poster_path, overview }: any) => {
+      return (<>
+        <div className="card mb-2">
+          <div className="row g-0">
+            <div className="col-md-2">
+              <Image className="img-fluid rounded-start"
+                src={`https://image.tmdb.org/t/p/original${poster_path}`}
+                height={250}
+                width={150}
+                alt={title}
+              />
+            </div>
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">{title}</h5>
+                <p className="card-text fw-light">{overview}</p>
               </div>
             </div>
           </div>
+        </div>
+      </>)
+    })}
+    <br />
+    <p>
+      page :
+      {nbPage.map((page: any) => {
+        return (<>
+          <span>
+            <Link href={`${props.url}&page=${page}`}>
+              <a> {page} </a>
+            </Link>
+            | </span>
         </>)
       })}
-      <br />
-      <p>
-        page :
-        {nbPage.map((page: any) => {
-          return (<>
-            <span>
-              <Link href={`${props.url}&page=${page}`}>
-                <a> {page} </a>
-              </Link>
-              | </span>
-          </>)
-        })}
-      </p>
-    </main >
+    </p>
     <footer>
       Mayska
     </footer>
